@@ -1,0 +1,19 @@
+name: Scheduled Tasks
+
+on:
+  schedule:
+    - cron: '0 2 * * *' # Run daily at 2 AM UTC
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Perform Data Backup
+      run: |
+        echo "Performing data backup..."
+        # Example: Backup a database
+        # mysqldump -u <username> -p
+        echo "Data backup completed successfully."
