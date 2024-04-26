@@ -45,9 +45,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14'
+
     - name: Login to Heroku
-      run: heroku login --email=saaramislam@gmail.com --password=${{secrets.HRKU-95503637-0e1d-4c2c-8a0a-5138f453c5b6}}
+      run: heroku login --email=saaramislam@gmail.com --password="${{ secrets.HRKU-95503637-0e1d-4c2c-8a0a-5138f453c5b6 }}"
       env:
-        HEROKU_API_KEY: ${{secrets.HRKU-95503637-0e1d-4c2c-8a0a-5138f453c5b6}}
+        HEROKU_API_KEY: ${{ secrets.HRKU-95503637-0e1d-4c2c-8a0a-5138f453c5b6 }}
+
 
 
