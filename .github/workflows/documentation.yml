@@ -19,17 +19,20 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '14'  # Adjust the Node.js version if needed
     
     - name: Install dependencies
-      run: npm install  
+      run: npm install  # Assuming you use npm for your documentation project
     
-    - name: Build documentation
-      run: npm run build-docs  
+    - name: Generate documentation
+      run: |
+        npm install -g jsdoc
+        jsdoc ./src/*.js -d ./docs
+      working-directory: .  # Set the working directory to the root of your project
     
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./  
-        publish_branch: gh-pages 
+        publish_dir: ./docs  # Adjust this to the directory where your documentation is built
+        publish_branch: gh-pages  # Change if using a different branch for deployment
