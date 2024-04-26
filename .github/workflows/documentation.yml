@@ -34,5 +34,5 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs  # Adjust this to the directory where your documentation is built
-        publish_branch: gh-pages  # Change if using a different branch for deployment
+        publish_dir: ./
+        publish_branch: main
