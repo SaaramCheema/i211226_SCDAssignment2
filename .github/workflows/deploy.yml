@@ -37,6 +37,9 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
+    - name: Add Heroku
+      run: git remote add heroku https://dashboard.heroku.com/apps/i211226scdassignment2/deploy/heroku-git
+
 
     - name: Install Heroku CLI
       uses: actions/setup-node@v1
