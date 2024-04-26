@@ -12,13 +12,13 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Install Dependencies
-      run: npm install # Adjust for your project
+      run: npm install 
 
     - name: Check Coding Standards (Linting)
-      run: npm run lint # Adjust for your project
+      run: npm run lint 
 
     - name: Analyze Code Quality
-      run: npm run analyze # Adjust for your project
+      run: npm run analyze 
 
     - name: Scan for Security Vulnerabilities
       run: npm audit # Adjust for your project
