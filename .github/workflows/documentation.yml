@@ -3,10 +3,10 @@ name: Documentation Deployment
 on:
   push:
     branches:
-      - main  # Adjust the branch name if needed
+      - main  
   pull_request:
     branches:
-      - main  # Adjust the branch name if needed
+      - main  
 
 jobs:
   build-and-deploy:
@@ -19,20 +19,19 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
-        node-version: '14'  # Adjust the Node.js version if needed
+        node-version: '14'  
     
     - name: Install dependencies
-      run: npm install  # Assuming you use npm for your documentation project
+      run: npm install  
     
     - name: Generate documentation
       run: |
         npm install -g jsdoc
         jsdoc ./src/*.js -d ./docs
-      working-directory: .  # Set the working directory to the root of your project
+      working-directory: .  
     
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./
-        publish_branch: main
