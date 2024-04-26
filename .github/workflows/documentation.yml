@@ -3,29 +3,31 @@ name: Documentation Deployment
 on:
   push:
     branches:
-      - main  
+      - main 
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
-    - name: Checkout Repository
+    - name: Checkout repository
       uses: actions/checkout@v2
-
-    - name: Set up Python
+    
+    - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'
-
-    - name: Install Dependencies
-      run: pip install mkdocs mkdocs-material 
-
-    - name: Build Documentation
-      run: mkdocs build --clean 
-
+        python-version: '3.x' 
+    
+    - name: Install dependencies
+      run: |
+        pip install mkdocs mkdocs-material
+        
+    - name: Build documentation
+      run: |
+        mkdocs build --clean
+        
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        deploy_key: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./site 
-        cname: your-custom-domain.com 
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
