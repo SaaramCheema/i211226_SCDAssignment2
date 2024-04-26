@@ -23,6 +23,13 @@ jobs:
           echo "Generating release notes..."
           ./generate-release-notes.sh > release-notes.txt
 
+          
+      - name: Debug
+        run: |
+          pwd
+          ls -l
+
+
       - name: Upload release notes
         uses: actions/upload-artifact@v2
         with:
