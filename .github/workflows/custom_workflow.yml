@@ -16,10 +16,8 @@ jobs:
       - name: Install dependencies
         run: npm install  # Assuming your project uses npm for managing dependencies
 
-      - name: Debug
-        run: |
-          pwd
-          ls -l
+      - name: Grant execute permissions to the script
+        run: chmod +x generate-release-notes.sh  # Grant execute permissions to the script
 
       - name: Generate release notes
         run: |
@@ -27,10 +25,6 @@ jobs:
           # Replace this with your actual release notes generation script
           echo "Generating release notes..."
           ./generate-release-notes.sh > release-notes.txt
-
-          
-
-
 
       - name: Upload release notes
         uses: actions/upload-artifact@v2
