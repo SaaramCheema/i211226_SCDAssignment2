@@ -46,6 +46,8 @@ jobs:
       with:
         node-version: '14'
     - name: Login to Heroku
-      run: echo "$HEROKU_API_KEY" | heroku login --interactive
-    - name: Deploy to Heroku
-      run: git push heroku main
+      run: heroku login --username=$saaramislam@gmail.com --password=$HRKU-95503637-0e1d-4c2c-8a0a-5138f453c5b6
+      env:
+        HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
+        HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+
