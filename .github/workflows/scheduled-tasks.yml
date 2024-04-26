@@ -2,7 +2,7 @@ name: Daily Maintenance
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs every day at midnight UTC
+    - cron: '0 0 * * *' 
 
 jobs:
   maintenance:
@@ -12,11 +12,11 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      # Add your maintenance tasks here
+      
       - name: Run maintenance script
         run: |
           # Insert commands/scripts for maintenance here
           # Example:
           node run.js maintenance
 
-      # You can add more steps for notifications, logging, etc.
+      
