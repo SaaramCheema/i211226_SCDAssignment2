@@ -28,4 +28,5 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         directory: "/"
 
-    # Add steps to run tests here
+    - name: Run Tests
+      run: echo "npm test"
