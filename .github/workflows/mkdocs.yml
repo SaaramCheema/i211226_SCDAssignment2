@@ -1,0 +1,12 @@
+site_name: My Documentation
+nav:
+  - Home: README.md
+theme:
+  name: material
+  palette:
+    primary: teal
+    accent: pink
+markdown_extensions:
+  - admonition
+  - codehilite
+  
