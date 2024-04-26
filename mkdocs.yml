@@ -1,7 +1,6 @@
 site_name: My Documentation
 nav:
-  - Home: index.md
-  - About: about.md
+  - Home: README.md
 theme:
   name: material
   palette:
