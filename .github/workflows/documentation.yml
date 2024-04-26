@@ -3,31 +3,33 @@ name: Documentation Deployment
 on:
   push:
     branches:
-      - main 
+      - main  # Adjust the branch name if needed
+  pull_request:
+    branches:
+      - main  # Adjust the branch name if needed
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
     
-    - name: Setup Python
-      uses: actions/setup-python@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
       with:
-        python-version: '3.x' 
+        node-version: '14'
     
     - name: Install dependencies
-      run: |
-        pip install mkdocs mkdocs-material
-        
+      run: npm install  
+    
     - name: Build documentation
-      run: |
-        mkdocs build --clean
-        
+      run: npm run build-docs  
+    
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./
+        publish_dir: ./  
+        publish_branch: gh-pages 
