@@ -1,0 +1,30 @@
+name: Release Notes Generation
+
+on:
+  push:
+    branches:
+      - main  # Trigger the workflow when code is pushed to the main branch
+
+jobs:
+  generate_release_notes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2  # Checkout the repository's code
+
+      - name: Install dependencies
+        run: npm install  # Assuming your project uses npm for managing dependencies
+
+      - name: Generate release notes
+        run: |
+          # Example script to generate release notes using a custom tool
+          # Replace this with your actual release notes generation script
+          echo "Generating release notes..."
+          ./generate-release-notes.sh > release-notes.txt
+
+      - name: Upload release notes
+        uses: actions/upload-artifact@v2
+        with:
+          name: release-notes
+          path: release-notes.txt  # Upload the generated release notes as an artifact
