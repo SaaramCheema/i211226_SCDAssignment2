@@ -3,7 +3,7 @@ name: Release Notes Generation
 on:
   push:
     branches:
-      - main  # Trigger the workflow when code is pushed to the main branch
+      - main  
 
 jobs:
   generate_release_notes:
@@ -11,18 +11,17 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # Checkout the repository's code
+        uses: actions/checkout@v2  
 
       - name: Install dependencies
-        run: npm install  # Assuming your project uses npm for managing dependencies
+        run: npm install  
 
       - name: Grant execute permissions to the script
-        run: chmod +x generate-release-notes.sh  # Grant execute permissions to the script
+        run: chmod +x generate-release-notes.sh  
 
       - name: Generate release notes
         run: |
-          # Example script to generate release notes using a custom tool
-          # Replace this with your actual release notes generation script
+  
           echo "Generating release notes..."
           ./generate-release-notes.sh > release-notes.txt
 
@@ -30,4 +29,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: release-notes
-          path: release-notes.txt  # Upload the generated release notes as an artifact
+          path: release-notes.txt  
